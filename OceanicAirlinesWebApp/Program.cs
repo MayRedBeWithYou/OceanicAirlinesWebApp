@@ -1,3 +1,5 @@
+using OceanicAirlinesWebApp.Algorithms;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,3 +27,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+Graph graph = new Graph();
+graph.Dijkstra(1, 11, (e) => e.Price)
+graph.Dijkstra(1, 11, (e) => e.Time)

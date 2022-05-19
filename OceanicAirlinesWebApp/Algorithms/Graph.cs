@@ -18,32 +18,39 @@ namespace OceanicAirlinesWebApp.Algorithms
         public int From { get; set; }
         public int To { get; set; }
         public EdgeType Type { get; set; }
-        public int Price { get; set; }
-        public int Priority { get
+        public int Dots { get; set; }
+        public int Price { get
             {
                 switch(Type)
                 {
-                    case EdgeType.Airline: return 1;
-                    case EdgeType.Ship: return 10;
-                    case EdgeType.Car: return 10;
+                    case EdgeType.Airline: return 0;
+                    case EdgeType.Ship: return 300 * Dots;
+                    case EdgeType.Car: return 300 * Dots;
                     default: return 0;
                 }
             } 
         }
-
+        public int Time { get;
+            {
+                switch(Type)
+                {
+                    case EdgeType.Airline: return 8;
+                    case EdgeType.Ship: return 10 * Dots;
+                    case EdgeType.Car: return 10 * Dots;
+                    default: return 0;
+                }
+            }
+        }
     }
-    public static class Constants
-    {
-        public static int priceconstant = 300;
-        public static int timeconstant = 10;
-    }
-
 
     public class Node
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public List<Edge> Edges { get; set; }
+
+       
+
     }
 
     public class Route
@@ -60,6 +67,157 @@ namespace OceanicAirlinesWebApp.Algorithms
         public List<Edge> Edges = new List<Edge>();
         public List<Node> Nodes = new List<Node>();
 
+        static void Main(String[] args)
+        {
+
+            Graph graph = new Graph()
+            {
+                Nodes = new List<Node>()
+                {
+                    new Node()
+                    {
+                        Id = 1,
+                        Name = "Tanger",
+                        Edges = new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 1,
+                                To = 2,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            }
+
+                            new Edge()
+                            {
+                                From = 1,
+                                To = 12,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            }
+
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 2,
+                        Name = "Marrakesh",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 2,
+                                To = 11,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            }
+                            
+                            new Edge()
+                            {
+                                From = 2,
+                                To = 3,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            }
+                        }
+                    }
+
+                    new Node()
+                    {
+                        Id = 3,
+                        Name = "Sierra",
+                        Edges = new List<Edge>()
+                        {
+
+                        }
+                    }
+
+                    new Node()
+                    {
+                        Id=4,
+                        Name = "St.Helena",
+                        Edges = 
+                    }
+
+                    new Node()
+                    {
+                        Id = 11,
+                        Name = "Guldkysten"
+                        Edges = new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 11,
+                                To = 2,
+
+                            }
+                        }
+                    }
+
+                    new Node()
+                    {
+                        Id = 12,
+                        Name = "Tripoli"
+                        Edges = new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 12,
+                                To = 11,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            }
+                        }
+                    }
+                }
+            }
+           
+
+          
+
+            Node Helma = new Node();
+            Helma.Name = "St. Helma";
+            Helma.Id = 4;
+            Helma.Edges = new List<Edge>();
+
+            Node Kapstaden = new Node();
+            Kapstaden.Name = "Kapstaden";
+            Kapstaden.Id = 5;
+            Kapstaden.Edges = new List<Edge>();
+
+            Node Marie = new Node();
+            Marie.Name = "Kap St. Marie";
+            Marie.Id = 6;
+            Marie.Edges = new List<Edge>();
+
+            Node Amatave = new Node();
+            Amatave.Name = "Amatave";
+            Amatave.Id = 7;
+            Amatave.Edges = new List<Edge>();
+
+            Node Dragebjerget = new Node();
+            Dragebjerget.Name = "Dragebjerget";
+            Dragebjerget.Id = 8;
+            Dragebjerget.Edges = new List<Edge>();
+
+            Node Hvalbugten = new Node();
+            Hvalbugten.Name = "Hvalbugten";
+            Hvalbugten.Id = 9;
+            Hvalbugten.Edges = new List<Edge>();
+
+            Node Luanda = new Node();
+            Luanda.Name = "Luanda";
+            Luanda.Id = 10;
+            Luanda.Edges = new List<Edge>();
+
+          
+
+            //Node Tripoli = new Node();
+            //Tripoli.Name =  
+            
+        }
+
         public Route Dijkstra(int from, int to, Func<Edge, int> edgeWeight)
         {
             foreach(Edge e in Edges)
@@ -67,6 +225,7 @@ namespace OceanicAirlinesWebApp.Algorithms
                 sum += edgeWeight(e);
             }
             return null;
+
         }
     }
 
@@ -97,6 +256,8 @@ namespace OceanicAirlinesWebApp.Algorithms
 
             return min_index;
         }
+        
+
 
         // A utility function to print
         // the constructed distance array
