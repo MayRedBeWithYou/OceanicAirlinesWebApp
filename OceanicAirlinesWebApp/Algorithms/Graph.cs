@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using OceanicAirlinesWebApp.Models;
 
 namespace OceanicAirlinesWebApp.Algorithms
 {
     public enum EdgeType
     {
-        Airline,
-        Car,
-        Ship
+        Airline = 1,
+        Car = 2,
+        Ship = 4
     }
 
     public class Edge
@@ -61,9 +62,11 @@ namespace OceanicAirlinesWebApp.Algorithms
         public List<Node> Path { get; set; } = new List<Node>();
         public List<Edge> EdgePath { get; set; } = new List<Edge>();
 
+        public bool IsSupported { get; set; } = true;
+
         public double TotalPrice
         {
-            get { return 0; }
+            get; set;
         }
 
         public double TotalTime
@@ -73,13 +76,13 @@ namespace OceanicAirlinesWebApp.Algorithms
                 double time = 0;
                 foreach (Edge edge in EdgePath)
                 {
-
+                    time += edge.Time;
                 }
                 return time;
             }
         }
 
-        public void CalculatePriceAndTime()
+        public void CalculatePriceAndTime(Parcel parcel)
         {
             double time = 0;
             double price = 0;
@@ -100,9 +103,78 @@ namespace OceanicAirlinesWebApp.Algorithms
                         break;
                 }
             }
+            if (isAirline)
+            {
+                double sizeprice = 0;
+                double typeprice = 0;
 
+                switch (parcel.Size)
+                {
+                    case "A":
+                        if (parcel.Weight < 1)
+                        {
+                            sizeprice = 40;
+                        }
+                        else if (parcel.Weight <= 5)
+                        {
+                            sizeprice = 60;
+                        }
+                        else
+                        {
+                            sizeprice = 80;
+                        }
+                        break;
+                    case "B":
+                        if (parcel.Weight < 1)
+                        {
+                            sizeprice = 48;
+                        }
+                        else if (parcel.Weight <= 5)
+                        {
+                            sizeprice = 68;
+                        }
+                        else
+                        {
+                            sizeprice = 88;
+                        }
+                        break;
+                    case "C":
+                        if (parcel.Weight < 1)
+                        {
+                            sizeprice = 80;
+                        }
+                        else if (parcel.Weight <= 5)
+                        {
+                            sizeprice = 100;
+                        }
+                        else
+                        {
+                            sizeprice = 120;
+                        }
+                        break;
+                }
+                Category category = Parcel.Categories[parcel.Category];
+
+                if (category.AddedPrice != -1)
+                {
+                    typeprice = category.AddedPrice;
+                }
+                else
+                {
+                    IsSupported = false;
+                }
+                
+
+                double Airlineprice = sizeprice * typeprice;
+
+
+                price = Airlineprice;
+            }
+            TotalPrice = price;
         }
     }
+
+
 
     public class Graph
     {
