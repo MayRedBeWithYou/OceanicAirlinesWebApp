@@ -108,12 +108,12 @@ namespace OceanicAirlinesWebApp.Algorithms
 
                 switch (parcel.Size)
                 {
-                    case (database.table.get."A"):
-                        if (parcel.Wieght < 1)
+                    case "A":
+                        if (parcel.Weight < 1)
                         {
                             sizeprice = 40;
                         }
-                        else if (parcel.Wieght <= 5)
+                        else if (parcel.Weight <= 5)
                         {
                             sizeprice = 60;
                         }
@@ -121,8 +121,8 @@ namespace OceanicAirlinesWebApp.Algorithms
                         {
                             sizeprice = 80;
                         }
-
-                    case ("B"):
+                        break;
+                    case "B":
                         if (parcel.Weight < 1)
                         {
                             sizeprice = 48;
@@ -135,7 +135,8 @@ namespace OceanicAirlinesWebApp.Algorithms
                         {
                             sizeprice = 88;
                         }
-                    case ("C"):
+                        break;
+                    case "C":
                         if (parcel.Weight < 1)
                         {
                             sizeprice = 80;
@@ -147,10 +148,14 @@ namespace OceanicAirlinesWebApp.Algorithms
                         else
                         {
                             sizeprice = 120;
-                        } 
+                        }
+                        break;
                 }
+                Category category;
 
-                typeprice 
+                typeprice =
+
+                Airlineprice = sizeprice * typeprice;
             }
 
         }

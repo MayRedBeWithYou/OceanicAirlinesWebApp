@@ -15,5 +15,8 @@ namespace OceanicAirlinesWebApp.Data
         }
 
         public DbSet<OceanicAirlinesWebApp.Models.Parcel>? Parcel { get; set; }
+        public DbSet<OceanicAirlinesWebApp.Models.User>? User { get; set; }
+        public DbSet<OceanicAirlinesWebApp.Models.User_Parcel>? User_Parcel { get; set; }
+        public DbSet<OceanicAirlinesWebApp.Models.Category>? Category { get; set; }
     }
 }
