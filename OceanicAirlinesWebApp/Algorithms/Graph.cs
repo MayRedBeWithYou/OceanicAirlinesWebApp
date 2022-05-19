@@ -19,20 +19,24 @@ namespace OceanicAirlinesWebApp.Algorithms
         public int To { get; set; }
         public EdgeType Type { get; set; }
         public int Dots { get; set; }
-        public int Price { get
+        public int Price
+        {
+            get
             {
-                switch(Type)
+                switch (Type)
                 {
                     case EdgeType.Airline: return 0;
                     case EdgeType.Ship: return 300 * Dots;
                     case EdgeType.Car: return 300 * Dots;
                     default: return 0;
                 }
-            } 
+            }
         }
-        public int Time { get;
+        public int Time
+        {
+            get;
             {
-                switch(Type)
+                switch (Type)
                 {
                     case EdgeType.Airline: return 8;
                     case EdgeType.Ship: return 10 * Dots;
@@ -49,7 +53,7 @@ namespace OceanicAirlinesWebApp.Algorithms
         public string Name { get; set; }
         public List<Edge> Edges { get; set; }
 
-       
+
 
     }
 
@@ -76,24 +80,1092 @@ namespace OceanicAirlinesWebApp.Algorithms
                 {
                     new Node()
                     {
+                        Id = 0,
+                        Name = "Addis Abeba",
+                        Edges = new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 0,
+                                To = 11,
+                                Type = EdgeType.Car,
+                                Dots = 2
+                            },
+
+                            new Edge()
+                            {
+                                From = 0,
+                                To = 29,
+                                Type = EdgeType.Car,
+                                Dots = 2
+                            },
+
+                            new Edge()
+                            {
+                                From = 0,
+                                To = 22,
+                                Type = EdgeType.Car,
+                                Dots = 2
+                            }
+                        },
+                    },
+
+                    new Node()
+                    {
                         Id = 1,
-                        Name = "Tanger",
+                        Name = "Bahr El Ghazal",
                         Edges = new List<Edge>()
                         {
                             new Edge()
                             {
                                 From = 1,
-                                To = 2,
-                                Type = EdgeType.Airline,
-                                Dots = 0,
-                            }
+                                To = 4,
+                                Type = EdgeType.Car,
+                                Dots = 1
+                            },
 
                             new Edge()
                             {
                                 From = 1,
-                                To = 12,
+                                To = 29,
+                                Type = EdgeType.Car,
+                                Dots = 1
+                            }
+                        },
+                    },
+
+                    new Node()
+                    {
+                        Id = 2,
+                        Name = "Cairo",
+                        Edges = new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 2,
+                                To = 23,
+                                Type = EdgeType.Airline,
+                                Dots = 0
+                            },
+
+                         new Edge()
+                            {
+                                From = 2,
+                                To = 27,
+                                Type = EdgeType.Ship,
+                                Dots = 4,
+                            },
+
+                         new Edge()
+                            {
+                                From = 2,
+                                To = 17,
+                                Type = EdgeType.Car,
+                                Dots = 3,
+                            },
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 3,
+                        Name = "Congo",
+                        Edges = new List<Edge>()
+                        {
+
+                            new Edge()
+                            {
+                                From = 3,
+                                To = 4,
+                                Type = EdgeType.Car,
+                                Dots = 5
+                            },
+
+                            new Edge()
+                            {
+                                From = 3,
+                                To = 14,
+                                Type = EdgeType.Car,
+                                Dots = 2
+                            },
+
+                            new Edge()
+                            {
+                                From = 3,
+                                To = 30,
+                                Type = EdgeType.Car,
+                                Dots = 4
+                            },
+
+                            new Edge()
+                            {
+                                From = 3,
+                                To = 20,
+                                Type = EdgeType.Car,
+                                Dots = 4
+                            }
+                        },
+                    },
+
+                    new Node()
+                    {
+                        Id = 4,
+                        Name = "Dafur",
+                        Edges = new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 4,
+                                To = 10,
                                 Type = EdgeType.Airline,
                                 Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 4,
+                                To = 22,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 4,
+                                To = 26,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 4,
+                                To = 30,
+                                Type = EdgeType.Car,
+                                Dots = 3,
+                            },
+
+                            new Edge()
+                            {
+                                From = 4,
+                                To = 17,
+                                Type = EdgeType.Car,
+                                Dots = 2,
+                            },
+
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 5,
+                        Name = "Dakar",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 5,
+                                To = 19,
+                                Type = EdgeType.Ship,
+                                Dots = 2,
+                            },
+
+                            new Edge()
+                            {
+                                From = 5,
+                                To = 21,
+                                Type = EdgeType.Ship,
+                                Dots = 9,
+                            },
+
+                            new Edge()
+                            {
+                                From = 5,
+                                To = 6,
+                                Type = EdgeType.Ship,
+                                Dots = 4,
+                            },
+
+                            new Edge()
+                            {
+                                From = 5,
+                                To = 15,
+                                Type = EdgeType.Car,
+                                Dots = 7,
+                            },
+
+                            new Edge()
+                            {
+                                From = 5,
+                                To = 19,
+                                Type = EdgeType.Car,
+                                Dots = 3,
+                            }
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 6,
+                        Name = "De kanariske oeer",
+                        Edges = new List<Edge>()
+                        {
+
+                            new Edge()
+                            {
+                                From = 6,
+                                To = 24,
+                                Type = EdgeType.Ship,
+                                Dots = 2,
+                            },
+
+                            new Edge()
+                            {
+                                From = 6,
+                                To = 5,
+                                Type = EdgeType.Ship,
+                                Dots = 4,
+                            }
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 7,
+                        Name = "Dragebjerget",
+                        Edges = new List<Edge>()
+                        {
+
+                            new Edge()
+                            {
+                                From = 7,
+                                To = 29,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 7,
+                                To = 13,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            }
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 8,
+                        Name = "Guldkysten",
+                        Edges = new List<Edge>()
+                        {
+
+                            new Edge()
+                            {
+                                From = 8,
+                                To = 15,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+                            new Edge()
+                            {
+                                From = 8,
+                                To = 26,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+                            new Edge()
+                            {
+                                From = 8,
+                                To = 9,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+                            new Edge()
+                            {
+                                From = 8,
+                                To = 14,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 8,
+                                To = 25,
+                                Type = EdgeType.Car,
+                                Dots = 3,
+                            },
+
+                            new Edge()
+                            {
+                                From = 8,
+                                To = 20,
+                                Type = EdgeType.Ship,
+                                Dots = 3,
+                            },
+
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 9,
+                        Name = "Hvalbugten",
+                        Edges = new List<Edge>()
+                        {
+
+                            new Edge()
+                            {
+                                From = 9,
+                                To = 8,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 9,
+                                To = 14,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 9,
+                                To = 13,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 10,
+                                To = 20,
+                                Type = EdgeType.Ship,
+                                Dots = 8,
+                            },
+
+                           new Edge()
+                            {
+                                From = 10,
+                                To = 28,
+                                Type = EdgeType.Car,
+                                Dots = 3,
+                            },
+                        }
+                    },
+
+                    new Node()
+                    {
+                            Id = 10,
+                           Name = "Kabalo",
+                           Edges = new List<Edge>()
+                           {
+
+                               new Edge()
+                               {
+                                   From = 10,
+                                   To = 13,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 10,
+                                   To = 4,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               }
+                           }
+                    },
+
+                    new Node()
+                    {
+                           Id = 11,
+                           Name = "Kap Guardafui",
+                           Edges = new List<Edge>()
+                           {
+
+                               new Edge()
+                               {
+                                   From = 11,
+                                   To = 29,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 11,
+                                   To = 23,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                                new Edge()
+                                {
+                                    From = 11,
+                                    To = 16,
+                                    Type = EdgeType.Ship,
+                                    Dots = 7,
+                                },
+
+                                new Edge()
+                                {
+                                    From = 11,
+                                    To = 31,
+                                    Type = EdgeType.Car,
+                                    Dots = 5,
+                                },
+
+                                new Edge()
+                                {
+                                   From = 11,
+                                   To = 0,
+                                   Type = EdgeType.Car,
+                                   Dots = 2,
+                                },
+                           }
+                    },
+
+                    new Node()
+                    {
+                           Id = 12,
+                           Name = "Kap St Marie",
+                           Edges = new List<Edge>()
+                           {
+
+                               new Edge()
+                               {
+                                   From = 12,
+                                   To = 13,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                               new Edge()
+                               {
+                                    From = 12,
+                                    To = 16,
+                                    Type = EdgeType.Ship,
+                                    Dots = 2,
+                                },
+                           }
+                    },
+
+                    new Node()
+                    {
+                           Id = 13,
+                           Name = "Kapstaden",
+                           Edges = new List<Edge>()
+                           {
+                               new Edge()
+                               {
+                                   From = 13,
+                                   To = 12,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0
+                               },
+
+                               new Edge()
+                               {
+                                   From = 13,
+                                   To = 21,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 13,
+                                   To = 9,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 13,
+                                   To = 10,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 13,
+                                   To = 7,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+                           }
+                    },
+
+                    new Node()
+                    {
+                           Id = 14,
+                           Name = "Luanda",
+                           Edges = new List<Edge>()
+                           {
+
+                                new Edge()
+                                {
+                                    From = 14,
+                                    To = 9,
+                                    Type = EdgeType.Airline,
+                                    Dots = 0,
+                                },
+
+                                new Edge()
+                                {
+                                    From = 14,
+                                    To = 8,
+                                    Type = EdgeType.Airline,
+                                    Dots = 0,
+                                },
+
+                                new Edge()
+                                {
+                                    From = 14,
+                                    To = 3,
+                                    Type = EdgeType.Car,
+                                    Dots = 2,
+                                },
+
+                               new Edge()
+                                {
+                                    From = 14,
+                                    To = 16,
+                                    Type = EdgeType.Car,
+                                    Dots = 9,
+                                }
+                            }
+                    },
+
+                    new Node()
+                    {
+                           Id = 15,
+                           Name = "Marrakesh",
+                           Edges = new List<Edge>()
+                           {
+
+                               new Edge()
+                               {
+                                   From = 15,
+                                   To = 24,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 15,
+                                   To = 19,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 15,
+                                   To = 8,
+                                   Type = EdgeType.Airline,
+                                   Dots = 0,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 15,
+                                   To = 18,
+                                   Type = EdgeType.Car,
+                                   Dots = 4,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 15,
+                                   To = 5,
+                                   Type = EdgeType.Car,
+                                   Dots = 7,
+                               }
+                           }
+                    },
+
+                    new Node()
+                    {
+                           Id = 16,
+                           Name = "Mocambique",
+                           Edges = new List<Edge>()
+                           {
+
+                               new Edge()
+                               {
+                                   From = 16,
+                                   To = 11,
+                                   Type = EdgeType.Ship,
+                                   Dots = 7,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 16,
+                                   To = 12,
+                                   Type = EdgeType.Ship,
+                                   Dots = 2
+                               },
+
+                               new Edge()
+                               {
+                                   From = 16,
+                                   To = 31,
+                                   Type = EdgeType.Car,
+                                   Dots = 2,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 16,
+                                   To = 29,
+                                   Type = EdgeType.Car,
+                                   Dots = 5,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 16,
+                                   To = 7,
+                                   Type = EdgeType.Car,
+                                   Dots = 3,
+                               },
+
+                               new Edge()
+                               {
+                                   From = 16,
+                                   To = 14,
+                                   Type = EdgeType.Car,
+                                   Dots = 9,
+                               },
+                           }
+                    },
+
+                    new Node()
+                    {
+                        Id = 17,
+                        Name = "Omdurman",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 17,
+                                To = 2,
+                                Type = EdgeType.Car,
+                                Dots = 3,
+                            },
+                            new Edge()
+                            {
+                                From = 17,
+                                To = 4,
+                                Type = EdgeType.Car,
+                                Dots = 2,
+                            },
+                            new Edge()
+                            {
+                                From = 17,
+                                To = 26,
+                                Type = EdgeType.Car,
+                                Dots = 5,
+                            },
+                        },
+                    },
+                    
+                    new Node()
+                    {
+                        Id = 18,
+                        Name = "Sahara",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 18,
+                                To = 24,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            },
+                            new Edge()
+                            {
+                                From = 18,
+                                To = 4,
+                                Type = EdgeType.Car,
+                                Dots = 7,
+                            },
+                            new Edge()
+                            {
+                                From = 18,
+                                To = 15,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            }
+                        },
+                    },
+                    
+                    new Node()
+                    {
+                        Id = 19,
+                        Name = "Sierra Leone",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 19,
+                                To = 15,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 19,
+                                To = 21,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 19,
+                                To = 25,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            },
+
+                            new Edge()
+                            {
+                                From = 19,
+                                To = 5,
+                                Type = EdgeType.Ship,
+                                Dots = 2,
+                            }
+                        }
+                    },
+                    
+                    new Node()
+                    {
+                        Id = 20,
+                        Name = "Slavekysten",
+                        Edges= new List<Edge>()
+                        {
+                             new Edge()
+                            {
+                                From = 20,
+                                To = 9,
+                                Type = EdgeType.Ship,
+                                Dots = 8,
+                            },
+
+                            new Edge()
+                            {
+                                From = 20,
+                                To = 8,
+                                Type = EdgeType.Ship,
+                                Dots = 3,
+                            },
+
+                            new Edge()
+                            {
+                                From = 20,
+                                To = 30,
+                                Type = EdgeType.Car,
+                                Dots = 6,
+                            },
+
+                            new Edge()
+                            {
+                                From = 20,
+                                To = 25,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            },
+
+                            new Edge()
+                            {
+                                From = 20,
+                                To = 4,
+                                Type = EdgeType.Car,
+                                Dots = 6,
+                            },
+
+                            new Edge()
+                            {
+                                From = 20,
+                                To = 3,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            }
+                        }
+                    },
+                    
+                    new Node()
+                    {
+                        Id = 21,
+                        Name = "St Helena",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 21,
+                                To = 13,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 21,
+                                To = 19,
+                                Type = EdgeType.Airline,
+                                Dots = 0
+                            }
+                        }
+                    },
+                    
+                    new Node()
+                    {
+                        Id = 22,
+                        Name = "Suakin",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 22,
+                                To = 29,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 22,
+                                To = 2,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 22,
+                                To = 4,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 22,
+                                To = 0,
+                                Type = EdgeType.Car,
+                                Dots = 2,
+                            }
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 23,
+                        Name = "Tamatave",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 23,
+                                To = 11,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+                            new Edge()
+                            {
+                                From = 23,
+                                To = 13,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 24,
+                        Name = "Tanger",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 24,
+                                To = 26,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 24,
+                                To = 15,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 24,
+                                To = 27,
+                                Type = EdgeType.Ship,
+                                Dots = 2,
+                            },
+
+                            new Edge()
+                            {
+                                From = 24,
+                                To = 27,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            },
+
+                            new Edge()
+                            {
+                                From = 24,
+                                To = 6,
+                                Type = EdgeType.Ship,
+                                Dots = 2,
+                            },
+                            new Edge()
+                            {
+                                From = 24,
+                                To = 18,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            }
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 25,
+                        Name = "Timbuktu",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 25,
+                                To = 8,
+                                Type = EdgeType.Car,
+                                Dots = 3,
+                            },
+
+                            new Edge()
+                            {
+                                From = 25,
+                                To = 20,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            },
+
+                            new Edge()
+                            {
+                                From = 25,
+                                To = 19,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            },
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 26,
+                        Name = "Tripoli",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 26,
+                                To = 4,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 26,
+                                To = 24,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 26,
+                                To = 8,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 26,
+                                To = 27,
+                                Type = EdgeType.Car,
+                                Dots = 2,
+                            },
+
+                             new Edge()
+                            {
+                                From = 26,
+                                To = 17,
+                                Type = EdgeType.Car,
+                                Dots = 5,
+                            }
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 27,
+                        Name = "Tunis",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 27,
+                                To = 24,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            },
+
+                            new Edge()
+                            {
+                                From = 27,
+                                To = 2,
+                                Type = EdgeType.Ship,
+                                Dots = 4,
+                            },
+
+                            new Edge()
+                            {
+                                From = 27,
+                                To = 24,
+                                Type = EdgeType.Ship,
+                                Dots = 2,
+                            },
+
+                            new Edge()
+                            {
+                                From = 27,
+                                To = 26,
+                                Type = EdgeType.Car,
+                                Dots = 2,
                             }
 
                         }
@@ -101,123 +1173,184 @@ namespace OceanicAirlinesWebApp.Algorithms
 
                     new Node()
                     {
-                        Id = 2,
-                        Name = "Marrakesh",
+                        Id = 28,
+                        Name = "Victoriafaldene",
                         Edges= new List<Edge>()
                         {
                             new Edge()
                             {
-                                From = 2,
+                                From = 28,
+                                To = 7,
+                                Type = EdgeType.Car,
+                                Dots = 2,
+                            },
+
+                            new Edge()
+                            {
+                                From = 28,
+                                To = 16,
+                                Type = EdgeType.Car,
+                                Dots = 4,
+                            },
+
+                            new Edge()
+                            {
+                                From = 28,
+                                To = 9,
+                                Type = EdgeType.Car,
+                                Dots = 3,
+                            },
+
+                            new Edge()
+                            {
+                                From = 28,
+                                To = 14,
+                                Type = EdgeType.Car,
+                                Dots = 10,
+                            }
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 29,
+                        Name = "Victoriasoeen",
+                        Edges= new List<Edge>()
+                        {
+                           new Edge()
+                            {
+                                From = 29,
+                                To = 22,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 29,
+                                To = 7,
+                                Type = EdgeType.Airline,
+                                Dots = 0,
+                            },
+
+                            new Edge()
+                            {
+                                From = 29,
                                 To = 11,
                                 Type = EdgeType.Airline,
                                 Dots = 0,
-                            }
-                            
+                            },
+
+                           new Edge()
+                            {
+                                From = 29,
+                                To = 31,
+                                Type = EdgeType.Car,
+                                Dots = 5,
+                            },
+
                             new Edge()
                             {
-                                From = 2,
+                                From = 29,
+                                To = 16,
+                                Type = EdgeType.Car,
+                                Dots = 5,
+                            },
+
+                           new Edge()
+                            {
+                                From = 29,
+                                To = 1,
+                                Type = EdgeType.Car,
+                                Dots = 1,
+                            },
+
+                           new Edge()
+                            {
+                                From = 29,
+                                To = 0,
+                                Type = EdgeType.Car,
+                                Dots = 2,
+                            }
+
+
+                        }
+                    },
+
+                    new Node()
+                    {
+                        Id = 30,
+                        Name = "Wadai",
+                        Edges= new List<Edge>()
+                        {
+                            new Edge()
+                            {
+                                From = 30,
+                                To = 20,
+                                Type = EdgeType.Car,
+                                Dots = 6,
+                            },
+
+                            new Edge()
+                            {
+                                From = 30,
                                 To = 3,
-                                Type = EdgeType.Airline,
-                                Dots = 0,
+                                Type = EdgeType.Car,
+                                Dots = 5,
+                            },
+
+                            new Edge()
+                            {
+                                From = 30,
+                                To = 4,
+                                Type = EdgeType.Car,
+                                Dots = 3,
                             }
                         }
-                    }
+                    },
 
                     new Node()
                     {
-                        Id = 3,
-                        Name = "Sierra",
-                        Edges = new List<Edge>()
-                        {
-
-                        }
-                    }
-
-                    new Node()
-                    {
-                        Id=4,
-                        Name = "St.Helena",
-                        Edges = 
-                    }
-
-                    new Node()
-                    {
-                        Id = 11,
-                        Name = "Guldkysten"
-                        Edges = new List<Edge>()
+                        Id = 31,
+                        Name = "Zanzibar",
+                        Edges= new List<Edge>()
                         {
                             new Edge()
                             {
-                                From = 11,
-                                To = 2,
+                                From = 31,
+                                To = 16,
+                                Type = EdgeType.Car,
+                                Dots = 2,
+                            },
 
-                            }
-                        }
-                    }
-
-                    new Node()
-                    {
-                        Id = 12,
-                        Name = "Tripoli"
-                        Edges = new List<Edge>()
-                        {
                             new Edge()
                             {
-                                From = 12,
+                                From = 31,
                                 To = 11,
-                                Type = EdgeType.Airline,
-                                Dots = 0,
-                            }
+                                Type = EdgeType.Car,
+                                Dots = 5,
+                            },
+
+                            new Edge()
+                            {
+                                From = 31,
+                                To = 29,
+                                Type = EdgeType.Car,
+                                Dots = 5,
+                            },
+
                         }
-                    }
+                },
+
+
                 }
             }
-           
-
-          
-
-            Node Kapstaden = new Node();
-            Kapstaden.Name = "Kapstaden";
-            Kapstaden.Id = 5;
-            Kapstaden.Edges = new List<Edge>();
-
-            Node Marie = new Node();
-            Marie.Name = "Kap St. Marie";
-            Marie.Id = 6;
-            Marie.Edges = new List<Edge>();
-
-            Node Amatave = new Node();
-            Amatave.Name = "Amatave";
-            Amatave.Id = 7;
-            Amatave.Edges = new List<Edge>();
-
-            Node Dragebjerget = new Node();
-            Dragebjerget.Name = "Dragebjerget";
-            Dragebjerget.Id = 8;
-            Dragebjerget.Edges = new List<Edge>();
-
-            Node Hvalbugten = new Node();
-            Hvalbugten.Name = "Hvalbugten";
-            Hvalbugten.Id = 9;
-            Hvalbugten.Edges = new List<Edge>();
-
-            Node Luanda = new Node();
-            Luanda.Name = "Luanda";
-            Luanda.Id = 10;
-            Luanda.Edges = new List<Edge>();
-
-          
-
-            //Node Tripoli = new Node();
-            //Tripoli.Name =  
-            
-        }
 
         public Route Dijkstra(int from, int to, Func<Edge, int> edgeWeight)
         {
             int[] dist = new int[33];
             List<Edge>[] routes = new List<Edge>[33];
-            foreach(List<Edge> route in routes) route = new List<Edge>();
+            foreach (List<Edge> route in routes) route = new List<Edge>();
             foreach (Node node in Nodes)
             {
 
@@ -254,7 +1387,7 @@ namespace OceanicAirlinesWebApp.Algorithms
 
             return min_index;
         }
-        
+
 
 
         // A utility function to print
