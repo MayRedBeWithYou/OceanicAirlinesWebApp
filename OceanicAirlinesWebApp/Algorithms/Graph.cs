@@ -93,9 +93,32 @@ namespace OceanicAirlinesWebApp.Algorithms
                 {
                     case (EdgeType.Ship):
                         // Fetch from API
+
+                        var result = Endpoints.FetchResultFromEIT(new RequestDTO()
+                        {
+                            From = Path.Find(node => node.Id == edge.From).Name,
+                            To = Path.Find(node => node.Id == edge.To).Name,
+                            Height = parcel.Height,
+                            Length = parcel.Length,
+                            Width = parcel.Width,
+                            Weight = parcel.Weight,
+                        });
+                        time += result.Result.Time;
+                        price += result.Result.Price;
                         break;
                     case EdgeType.Car:
                         // Fetch from API
+                        var result2 = Endpoints.FetchResultFromTL(new RequestDTO()
+                        {
+                            From = Path.Find(node => node.Id == edge.From).Name,
+                            To = Path.Find(node => node.Id == edge.To).Name,
+                            Height = parcel.Height,
+                            Length = parcel.Length,
+                            Width = parcel.Width,
+                            Weight = parcel.Weight,
+                        });
+                        time += result2.Result.Time;
+                        price += result2.Result.Price;
                         break;
                     default:
                         isAirline = true;
