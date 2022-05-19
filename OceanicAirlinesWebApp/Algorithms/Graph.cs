@@ -176,11 +176,6 @@ namespace OceanicAirlinesWebApp.Algorithms
 
           
 
-            Node Helma = new Node();
-            Helma.Name = "St. Helma";
-            Helma.Id = 4;
-            Helma.Edges = new List<Edge>();
-
             Node Kapstaden = new Node();
             Kapstaden.Name = "Kapstaden";
             Kapstaden.Id = 5;
@@ -220,9 +215,12 @@ namespace OceanicAirlinesWebApp.Algorithms
 
         public Route Dijkstra(int from, int to, Func<Edge, int> edgeWeight)
         {
-            foreach(Edge e in Edges)
+            int[] dist = new int[33];
+            List<Edge>[] routes = new List<Edge>[33];
+            foreach(List<Edge> route in routes) route = new List<Edge>();
+            foreach (Node node in Nodes)
             {
-                sum += edgeWeight(e);
+
             }
             return null;
 
