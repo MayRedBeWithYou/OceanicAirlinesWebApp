@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OceanicAirlinesWebApp.Models
 {
@@ -10,5 +11,7 @@ namespace OceanicAirlinesWebApp.Models
         public string To { get; set; }
         public double Weight { get; set; }
         public string Size { get; set; }
+        [ForeignKey("Category")]
+        public int Category { get; set; }
     }
 }
