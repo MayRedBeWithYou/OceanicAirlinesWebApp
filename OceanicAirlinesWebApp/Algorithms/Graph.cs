@@ -19,6 +19,17 @@ namespace OceanicAirlinesWebApp.Algorithms
         public int To { get; set; }
         public EdgeType Type { get; set; }
         public int Price { get; set; }
+        public int Priority { get
+            {
+                switch(Type)
+                {
+                    case EdgeType.Airline: return 1;
+                    case EdgeType.Ship: return 10;
+                    case EdgeType.Car: return 10;
+                    default: return 0;
+                }
+            } 
+        }
 
     }
 
