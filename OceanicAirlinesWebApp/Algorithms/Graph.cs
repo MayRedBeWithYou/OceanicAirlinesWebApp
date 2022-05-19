@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using OceanicAirlinesWebApp.Models;
 
 namespace OceanicAirlinesWebApp.Algorithms
 {
     public enum EdgeType
     {
-        Airline,
-        Car,
-        Ship
+        Airline = 1,
+        Car = 2,
+        Ship = 4
     }
 
     public class Edge
@@ -79,7 +80,7 @@ namespace OceanicAirlinesWebApp.Algorithms
             }
         }
 
-        public void CalculatePriceAndTime()
+        public void CalculatePriceAndTime(Parcel parcel)
         {
             double time = 0;
             double price = 0;
@@ -100,9 +101,62 @@ namespace OceanicAirlinesWebApp.Algorithms
                         break;
                 }
             }
+            if (isAirline)
+            { 
+                double sizeprice = 0;
+                double typeprice = 0;
+
+                switch (parcel.Size)
+                {
+                    case (database.table.get."A"):
+                        if (parcel.Wieght < 1)
+                        {
+                            sizeprice = 40;
+                        }
+                        else if (parcel.Wieght <= 5)
+                        {
+                            sizeprice = 60;
+                        }
+                        else
+                        {
+                            sizeprice = 80;
+                        }
+
+                    case ("B"):
+                        if (parcel.Weight < 1)
+                        {
+                            sizeprice = 48;
+                        }
+                        else if (parcel.Weight <=5 )
+                        {
+                            sizeprice = 68;
+                        }
+                        else
+                        {
+                            sizeprice = 88;
+                        }
+                    case ("C"):
+                        if (parcel.Weight < 1)
+                        {
+                            sizeprice = 80;
+                        }
+                        else if (parcel.Weight <=5 )
+                        {
+                            sizeprice = 100;
+                        }
+                        else
+                        {
+                            sizeprice = 120;
+                        } 
+                }
+
+                typeprice 
+            }
 
         }
     }
+
+
 
     public class Graph
     {
