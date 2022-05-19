@@ -62,9 +62,11 @@ namespace OceanicAirlinesWebApp.Algorithms
         public List<Node> Path { get; set; } = new List<Node>();
         public List<Edge> EdgePath { get; set; } = new List<Edge>();
 
+        public bool IsSupported { get; set; } = true;
+
         public double TotalPrice
         {
-            get { return 0; }
+            get; set;
         }
 
         public double TotalTime
@@ -74,7 +76,7 @@ namespace OceanicAirlinesWebApp.Algorithms
                 double time = 0;
                 foreach (Edge edge in EdgePath)
                 {
-
+                    time += edge.Time;
                 }
                 return time;
             }
@@ -102,7 +104,7 @@ namespace OceanicAirlinesWebApp.Algorithms
                 }
             }
             if (isAirline)
-            { 
+            {
                 double sizeprice = 0;
                 double typeprice = 0;
 
@@ -127,7 +129,7 @@ namespace OceanicAirlinesWebApp.Algorithms
                         {
                             sizeprice = 48;
                         }
-                        else if (parcel.Weight <=5 )
+                        else if (parcel.Weight <= 5)
                         {
                             sizeprice = 68;
                         }
@@ -141,7 +143,7 @@ namespace OceanicAirlinesWebApp.Algorithms
                         {
                             sizeprice = 80;
                         }
-                        else if (parcel.Weight <=5 )
+                        else if (parcel.Weight <= 5)
                         {
                             sizeprice = 100;
                         }
@@ -151,13 +153,24 @@ namespace OceanicAirlinesWebApp.Algorithms
                         }
                         break;
                 }
-                Category category;
+                Category category = Parcel.Categories[parcel.Category];
 
-                typeprice =
+                if (category.AddedPrice != -1)
+                {
+                    typeprice = category.AddedPrice;
+                }
+                else
+                {
+                    IsSupported = false;
+                }
+                
 
-                Airlineprice = sizeprice * typeprice;
+                double Airlineprice = sizeprice * typeprice;
+
+
+                price = Airlineprice;
             }
-
+            TotalPrice = price;
         }
     }
 
