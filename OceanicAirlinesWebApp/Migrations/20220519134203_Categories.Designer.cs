@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OceanicAirlinesWebApp.Data;
 
@@ -10,9 +11,10 @@ using OceanicAirlinesWebApp.Data;
 namespace OceanicAirlinesWebApp.Migrations
 {
     [DbContext(typeof(OceanicAirlinesWebAppContext))]
-    partial class OceanicAirlinesWebAppContextModelSnapshot : ModelSnapshot
+    [Migration("20220519134203_Categories")]
+    partial class Categories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,48 +76,6 @@ namespace OceanicAirlinesWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Parcel");
-                });
-
-            modelBuilder.Entity("OceanicAirlinesWebApp.Models.User", b =>
-                {
-                    b.Property<int>("UniqueId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UniqueId"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UniqueId");
-
-                    b.ToTable("User");
-                });
-
-            modelBuilder.Entity("OceanicAirlinesWebApp.Models.User_Parcel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<double>("DeliveryTime")
-                        .HasColumnType("float");
-
-                    b.Property<int>("ParcelId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("User_Parcel");
                 });
 #pragma warning restore 612, 618
         }
