@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using OceanicAirlinesWebApp.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<OceanicAirlinesWebAppContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("OceanicDBContext") ?? throw new InvalidOperationException("Connection string 'OceanicAirlinesWebAppContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
