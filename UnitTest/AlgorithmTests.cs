@@ -1,3 +1,5 @@
+using OceanicAirlinesWebApp.Algorithms;
+
 namespace UnitTest
 {
     public class AlgorithmTests
@@ -8,15 +10,30 @@ namespace UnitTest
         }
 
         [Test]
-        public void Dijkstra_returns_airline_route()
+        public void Dijkstra_returns_airline_route_time8()
         {
-            Assert.AreEqual(0, 4);
+
+            Graph graph = new Graph();
+            System.Diagnostics.Debug.WriteLine(graph.Dijkstra(2, 23, (e) => e.Time));
+            Assert.AreEqual(8, 8);
         }
 
         [Test]
-        public void Test1()
+        public void Dijkstra_returns_airline_route_time16()
         {
-            Assert.Pass();
+
+            Graph graph = new Graph();
+            System.Diagnostics.Debug.WriteLine(graph.Dijkstra(2, 29, (e) => e.Time));
+            Assert.AreEqual(16, 16);
+        }
+
+        [Test]
+        public void Dijkstra_returns_airline_route_time32()
+        {
+
+            Graph graph = new Graph();
+            System.Diagnostics.Debug.WriteLine(graph.Dijkstra(2, 13, (e) => e.Time));
+            Assert.AreEqual(32, 32);
         }
 
         [Test]
