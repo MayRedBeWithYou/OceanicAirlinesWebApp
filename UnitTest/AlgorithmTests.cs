@@ -14,17 +14,16 @@ namespace UnitTest
         {
 
             Graph graph = new Graph();
-            System.Diagnostics.Debug.WriteLine(graph.Dijkstra(2, 23, (e) => e.Time));
-            Assert.AreEqual(8, 8);
+            Route route = graph.Dijkstra(2, 23, (e) => e.Time);
+            Assert.AreEqual(route.TotalTime, 8);
         }
 
         [Test]
         public void Dijkstra_returns_airline_route_time16()
         {
-
             Graph graph = new Graph();
-            System.Diagnostics.Debug.WriteLine(graph.Dijkstra(2, 29, (e) => e.Time));
-            Assert.AreEqual(16, 16);
+            Route route = graph.Dijkstra(2, 29, (e) => e.Time);
+            Assert.AreEqual(route.TotalTime, 16);
         }
 
         [Test]
@@ -32,9 +31,21 @@ namespace UnitTest
         {
 
             Graph graph = new Graph();
-            System.Diagnostics.Debug.WriteLine(graph.Dijkstra(2, 13, (e) => e.Time));
-            Assert.AreEqual(32, 32);
+            Route route = graph.Dijkstra(2, 13, (e) => e.Time);
+            Assert.AreEqual(route.TotalTime, 32);
         }
+
+
+        [Test]
+        public void Dijkstra_return_price32()
+        {
+            Graph graph = new Graph();
+            Route route = graph.Dijkstra(2, 13, (e) => e.Price);
+            Assert.AreEqual(route.TotalPrice, 32);
+
+            //Assert.Fail();
+        }
+
 
         [Test]
         public void Test2()
