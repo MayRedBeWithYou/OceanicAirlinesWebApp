@@ -108,7 +108,7 @@ namespace OceanicAirlinesWebApp.Algorithms
                 double sizeprice = 0;
                 double typeprice = 0;
 
-                switch (parcel.Size)
+                switch (parcel.CalculatedSize)
                 {
                     case "A":
                         if (parcel.Weight < 1)
