@@ -21,7 +21,6 @@ namespace OceanicAirlinesWebApp.Algorithms
             };
             var response = await client.SendAsync(message).ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
-
             var responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             return JsonConvert.DeserializeObject<ResultDTO>(responseBody);
         }

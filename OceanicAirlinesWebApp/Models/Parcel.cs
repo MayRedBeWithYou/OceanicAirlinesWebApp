@@ -40,7 +40,7 @@ namespace OceanicAirlinesWebApp.Models
             {
                 Id = 0,
                 Name = "Standard",
-                AddedPrice = 0,
+                AddedPrice = 1,
             },
             new Category()
             {

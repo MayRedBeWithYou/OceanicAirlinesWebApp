@@ -131,7 +131,7 @@ namespace OceanicAirlinesWebApp.Algorithms
                 double sizeprice = 0;
                 double typeprice = 0;
 
-                switch (parcel.Size)
+                switch (parcel.CalculatedSize)
                 {
                     case "A":
                         if (parcel.Weight < 1)
@@ -273,7 +273,7 @@ namespace OceanicAirlinesWebApp.Algorithms
                         new Edge()
                         {
                             From = 2,
-                            To = 23,
+                            To = 22,
                             Type = EdgeType.Airline,
                             Dots = 0
                         },
