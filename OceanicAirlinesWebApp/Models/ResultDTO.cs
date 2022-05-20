@@ -2,8 +2,8 @@
 {
     public class ResultDTO
     {
-        public int Time { get; set; }
+        public double Time { get; set; }
 
-        public int Price { get; set; }
+        public double Price { get; set; }
     }
 }
