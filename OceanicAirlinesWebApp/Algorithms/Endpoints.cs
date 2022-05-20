@@ -13,6 +13,8 @@ namespace OceanicAirlinesWebApp.Algorithms
 
         public static async Task<ResultDTO> FetchResultFromEIT(RequestDTO request)
         {
+            request.From = request.From.ToLower();
+            request.To = request.To.ToLower();
             var message = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
@@ -27,6 +29,8 @@ namespace OceanicAirlinesWebApp.Algorithms
 
         public static async Task<ResultDTO> FetchResultFromTL(RequestDTO request)
         {
+            request.From = request.From.ToLower();
+            request.To = request.To.ToLower();
             var message = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
