@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OceanicAirlinesWebApp.Algorithms;
 using OceanicAirlinesWebApp.Data;
 using OceanicAirlinesWebApp.Models;
 
@@ -56,13 +57,36 @@ namespace OceanicAirlinesWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,From,To,Weight,Size")] Parcel parcel)
+        public async Task<IActionResult> Create([Bind("Name,Email,From,To,Weight,Size,Category")] Parcel parcel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(parcel);
+                Graph graph = new Graph();
+                var result = graph.Dijkstra(
+                    graph.Nodes.Find(node => node.Name.ToLower() == parcel.From.ToLower()).Id,
+                    graph.Nodes.Find(node => node.Name.ToLower() == parcel.To.ToLower()).Id, e => e.Time);
+                var newParcel = new Parcel()
+                {
+                    Category = parcel.Category,
+                    From = parcel.From,
+                    To = parcel.To,
+                    Weight = parcel.Weight,
+                    Height = parcel.Height,
+                    Width = parcel.Width,
+                    Length = parcel.Length,
+                    Name = parcel.Name,
+                    Email = parcel.Email,
+                };
+                result.CalculatePriceAndTime(parcel);
+                parcel.Price = result.TotalPrice;
+                parcel.Size = parcel.CalculatedSize;
+                parcel.Time = result.TotalTime;
+                _context.Parcel.Add(parcel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                Invoice invoice = new Invoice();
+                invoice.sendEmail(parcel.Id.ToString(), parcel.Name, parcel.Email, parcel.Price.ToString(), parcel.Time.ToString(), parcel.From, parcel.To);
+
+                return RedirectToAction("Details", "Parcels", new { id = parcel.Id });
             }
             return View(parcel);
         }

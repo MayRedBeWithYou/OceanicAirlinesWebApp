@@ -18,6 +18,11 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="From" class="control-label"></label>
                 <input asp-for="From" class="form-control" />
                 <span asp-validation-for="From" class="text-danger"></span>
@@ -34,9 +39,27 @@
             </div>
             <div class="form-group">
                 <label asp-for="Size" class="control-label"></label>
-                <input asp-for="Size" class="form-control" />
+                <select asp-for="Size" class="form-control">
+                    <option disabled selected>--- SELECT ---</option>
+                    <option value="A">A - H:25; D:25; B:25</option>
+                    <option value="B">B - H:40; D:40; B:40</option>
+                    <option value="C">C - H:200; D:200; B:200</option>
+                </select>
+                <span asp-validation-for="Size" class="text-danger"></span>
                 <span asp-validation-for="Size" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="Category" class="form-control">
+                    <option disabled selected>--- SELECT ---</option>
+                    <option value=0>Standard</option>
+                    <option value=3>Refrigerated</option>
+                    <option value=5>Cautious</option>
+                    <option value=6>Furniture</option>
+                    <option value=7>Weapons</option>
+                </select>
+            </div>
+            <p></p>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
