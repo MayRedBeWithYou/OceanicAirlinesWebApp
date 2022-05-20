@@ -17,6 +17,21 @@ body {
   margin-bottom: 60px;
 }
 
-.from-control {
-    background-color:#4AB0E0;
+.v-line {
+    border-right: thin solid #000;
+    height: 50%;
+    left: 16%;
+    position: absolute;
 }
+
+#box {
+    height: 200px;
+    width: 400px;
+    right: 50%;
+    margin-top:30px;
+    position: absolute;
+    border-bottom: 2px #000000;
+    background: #F4F4F4;
+    border-radius:10px;
+}
+
