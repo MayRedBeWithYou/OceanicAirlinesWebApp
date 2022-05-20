@@ -8,8 +8,6 @@
             alert("Please enter UserPassword.");
             return false;
         }
-
-        location.href = "https://localhost:7260/Parcels/Create";
         return true;
     }
 }

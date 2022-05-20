@@ -37,14 +37,10 @@ namespace OceanicAirlinesWebApp.Controllers
             if (display != null)
             {
                 ViewBag.Status = "CORRECT UserName and Password";
-                HttpContext.Session.SetString(SessionName, display.UserName);
-                return Redirect("https://localhost:7260/Parcels/Create");
-
+                return Redirect("/Parcels/Create");
             }
             else
             {
-                bool state = HttpContext.Session.GetString(SessionName) == "_Name";
-                Console.WriteLine(HttpContext.Session.GetString(SessionName));
                 ViewBag.Status = "INCORRECT UserName or Password";
             }
             return View(objuserlogin);
