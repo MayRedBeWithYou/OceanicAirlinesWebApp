@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OceanicAirlinesWebApp.Data;
 
@@ -10,9 +11,10 @@ using OceanicAirlinesWebApp.Data;
 namespace OceanicAirlinesWebApp.Migrations
 {
     [DbContext(typeof(OceanicAirlinesWebAppContext))]
-    partial class OceanicAirlinesWebAppContextModelSnapshot : ModelSnapshot
+    [Migration("20220520012622_update-parcels-again")]
+    partial class updateparcelsagain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
