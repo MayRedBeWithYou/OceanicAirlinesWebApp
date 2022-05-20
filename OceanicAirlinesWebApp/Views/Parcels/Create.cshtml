@@ -11,57 +11,60 @@
 
 <div class="row">
     <div class="col-md-4">
-        <div class="v-line">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control", style="background-color:#4AB0E0" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="From" class="control-label"></label>
-                    <input asp-for="From" class="form-control", style="background-color:#4AB0E0" />
-                    <span asp-validation-for="From" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="To" class="control-label"></label>
-                    <input asp-for="To" class="form-control", style="background-color:#4AB0E0" />
-                    <span asp-validation-for="To" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Weight" class="control-label"></label>
-                    <input asp-for="Weight" class="form-control", style="background-color:#4AB0E0; width:50px" />
-                    <span asp-validation-for="Weight" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Size" class="control-label"></label>
-                    <input asp-for="Size" class="form-control", style="background-color:#4AB0E0" />
-                    <span asp-validation-for="Size" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Calculate" style="background-color:#000000; color:#4AB0E0" class="btn btn-primary" onclick="showDiv('overskift')" />
-                </div>
-            </form>
-        </div>
-    </div>
-        <div id="overskrift" style="position:relative;text-align:center;display:none;"><!-- define relative so child absolute's are based on this elements origin -->
-            <div id="sampleLink" style="position:absolute; top:0px; right:980px; >Link</div>
-            <h1 style="text-align:center; font-weight:bold">SELECT ROUT</h1>
-        </div>
-        <head>
-        <style>
-        divbox {
-            width: 320px;
-            padding: 10px;
-            border: 5px solid black;
-            margin: 0;
-        }
-        </style>
-        </head>
-        <div id="box" style="border: solid black;border-width:5px">
-            <h1> Cheapset route</h1>
-        </div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" style="background-color:#4AB0E0" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" style="background-color:#4AB0E0" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="From" class="control-label"></label>
+                <input asp-for="From" class="form-control" style="background-color:#4AB0E0" />
+                <span asp-validation-for="From" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="To" class="control-label"></label>
+                <input asp-for="To" class="form-control" style="background-color:#4AB0E0" />
+                <span asp-validation-for="To" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" style="background-color:#4AB0E0" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <select asp-for="Size" class="form-control" style="background-color:#4AB0E0" >
+                    <option disabled selected>--- SELECT ---</option>
+                    <option value="A">A - H:25; D:25; B:25</option>
+                    <option value="B">B - H:40; D:40; B:40</option>
+                    <option value="C">C - H:200; D:200; B:200</option>
+                </select>
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="Category" class="form-control" style="background-color:#4AB0E0" >
+                    <option disabled selected>--- SELECT ---</option>
+                    <option value=0>Standard</option>
+                    <option value=3>Refrigerated</option>
+                    <option value=5>Cautious</option>
+                    <option value=6>Furniture</option>
+                    <option value=7>Weapons</option>
+                </select>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <input type="submit" value="Create" style="background-color:#000000; color:#4AB0E0" class="btn btn-primary" />
+            </div>
+        </form>
+  </div>
 </div>
 
 

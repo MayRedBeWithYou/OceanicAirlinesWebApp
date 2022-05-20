@@ -2,23 +2,26 @@
 @{  
     ViewBag.Title = "Index";  
 }  
-<script language="javascript">  
-    
-    function display() 
-       {  
-        if ($("#txtusername").attr("value") == "")  
-        {  
-            alert("Please Enter your UserName.");  
-            return false;  
-        } else if ($("#txtuserpassword").attr("value") == "") {  
-            alert("Please enter UserPassword.");  
-            return false;  
-        }  
+<script type="text/javascript" defer>     
+    console.log(document.cookie)
+    if(!document.cookie==""){
+        window.location.href = '/Home';
+    }
+    function display() {
+        console.log($("#txtusername").val())
+        console.log($("#txtuserpassword").val())
 
-        location.href = "https://localhost:7260/Parcels/Create";
-        return true;  
-       }  
-</script>  
+        if ($("#txtusername").val() == "Mr Ambassador" && $("#txtuserpassword").val() == "noTaxPlz") {
+            alert("Welcome, Mr Ambassador");
+            document.cookie = "username="+$("#txtusername").val();
+            window.location.href = '/Home';
+            return false;
+        } else {
+            alert("You are not, Mr Ambassador - you can't fly with us");
+            return false;
+        }
+        return true;
+    }</script>  
 
 
 <h3>Oceanic Airlines Parcel Delivery Service </h3>
@@ -39,7 +42,7 @@
     </tr>  
     <tr>  
         <td colspan="2">  
-          <input type="submit" value="Login" style="background-color:#000000; color:#4AB0E0; border-radius:5px" title="login" onclick=" display();"/>  
+          <input type="button" value="Login" style="background-color:#000000; color:#4AB0E0; border-radius:5px" title="login" onclick=" display();"/>  
         </td>  
     </tr>  
  </table>  
